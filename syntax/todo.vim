@@ -27,7 +27,6 @@ function StyleTag(tag, style)
   exe createLink
 endfunction
 
-" == special formatting ==
 " grays out an item with a checkmark
 syn match doneLine /\s*- ✅.*/
 hi doneGroup ctermfg=darkgray
