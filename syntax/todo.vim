@@ -1,3 +1,8 @@
+" Vim syntax file
+" Language:     Todo
+" Maintainer:   Nate Tenczar <ntenczar@gmail.com>
+" Filenames:    *.todo
+
 if exists("b:current_syntax")
   finish
 endif
