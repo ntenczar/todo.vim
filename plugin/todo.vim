@@ -1,10 +1,13 @@
-" Stuff for T O D O list -------------------------
-" shortcuts for adding/removing checkmarks on .todo files
-nmap <leader>d :s/- /- ✅ /<cr><esc><c-o>
-nmap <leader>f :s/- ✅ /- /<cr><esc><c-o>
+" todo.vim - Shortcuts for managing a todo list in vim
+" Maintainer:   Nate Tenczar <ntenczar@gmail.com>
+" Version:      0.1
+
+" Define the *.todo filetype
+filetype on
+au BufNewFile,BufRead *.todo set filetype=todo.html
 
 " Get a file-width string of today's date
-function! s:GetTodayBuff()
+function! s:get_today_buff()
   if exists('g:todo_today_buf_char')
     let buf_char = get(g:, 'todo_today_buf_char')
   else
@@ -34,8 +37,12 @@ function! s:GetTodayBuff()
   return buf . today . buf
 endfunction
 
-function! HighlightCategories()
+if exists('g:todo_check_char')
+  let todo_check_char = get(g: ,'todo_check_char')
+else
+  let todo_check_char = '✅'
+endif
 
-end
+let todo_check_with_space = '- ' . todo_check_char . ' '
 
-command TodoDate call append(0, GetTodayBuff()) append(1, '')
+command TodoDate call append(0, s:get_today_buff())
