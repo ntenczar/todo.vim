@@ -1,6 +1,11 @@
 " todo.vim - Shortcuts for managing a todo list in vim
 " Maintainer:   Nate Tenczar <ntenczar@gmail.com>
-" Version:      0.1
+" Version:      0.2
+
+if exists('g:loaded_todo')
+  finish
+endif
+let g:loaded_todo = 1
 
 " Define the *.todo filetype
 filetype on
